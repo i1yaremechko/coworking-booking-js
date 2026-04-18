@@ -14,7 +14,7 @@ const monthsNames = [
   'Dec',
 ];
 
-export const getDisplayedMonth = (date) => {
+export const getDisplayedDate = (date) => {
   const d = new Date(date);
   const day = d.getDate();
   const month = monthsNames[d.getMonth()];

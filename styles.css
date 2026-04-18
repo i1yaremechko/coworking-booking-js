@@ -170,6 +170,7 @@
 .booking__time-slot {
   height: 60px;
   border-bottom: 1px solid transparent;
+  cursor: pointer;
 }
 .booking__time-slot:not(:last-child) {
   border-bottom: 1px solid rgba(218, 220, 224, 0.2);
@@ -187,6 +188,7 @@
   border-right: 1px solid #dadce0;
   font-weight: 500;
   color: #3c4043;
+  background: #d4f0f5;
 }
 .workspace-header__name {
   font-size: 14px;
