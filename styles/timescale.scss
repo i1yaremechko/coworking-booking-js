@@ -1,0 +1,26 @@
+@import 'variables';
+
+.booking__time-scale {
+  width: $time-scale-width;
+  flex-shrink: 0;
+  border-right: 1px solid $color-border;
+  background-color: $color-bg-hover;
+}
+
+.time-slot {
+  position: relative;
+  height: $slot-height;
+  padding-left: 24px;
+  box-sizing: border-box;
+
+  &__time {
+    position: absolute;
+    top: 0;
+    right: auto;
+    left: 12px;
+    padding: 0 4px;
+    font-size: 12px;
+    color: $color-text-secondary;
+    text-align: left;
+  }
+}
