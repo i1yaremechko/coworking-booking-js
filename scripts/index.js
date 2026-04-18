@@ -1,7 +1,5 @@
-import { renderWorkspaces } from "./booking/renderWorkspaces.js";
-import { renderTimescale } from "./booking/timescale.js";
+import { renderBooking } from "./booking/booking.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderTimescale();
-  renderWorkspaces();
+  renderBooking();
 });

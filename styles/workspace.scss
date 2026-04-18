@@ -23,3 +23,20 @@
     background-color: rgba($color-primary, 0.02);
   }
 }
+
+.workspace-header {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-right: 1px solid $color-border;
+  font-weight: 500;
+  color: $color-text-main;
+
+  &__name {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}

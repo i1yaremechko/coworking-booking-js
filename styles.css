@@ -41,7 +41,7 @@
   height: 70px;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 24px;
   background: #fff;
   border-bottom: 1px solid #dadce0;
   z-index: 20;
@@ -111,19 +111,26 @@
 .navigation__nav-icon:hover {
   background-color: #def0fa;
 }
-.navigation__displayed-month {
+.navigation__displayed-day {
   margin-left: 12px;
   font-size: 22px;
   color: #3c4043;
 }
 
 .title {
-  height: 36px;
-  padding-top: 8px;
-  margin-left: 20px;
-  font-weight: 900;
-  font-size: 30px;
-  line-height: 30px;
+  margin-left: 32px;
+  font-size: 22px;
+  font-weight: 400;
+  color: #70757a;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+  cursor: default;
+}
+.title::first-letter {
+  color: #1a73e8;
+  font-weight: 700;
 }
 
 .booking__time-scale {
@@ -169,6 +176,22 @@
 }
 .booking__time-slot:hover {
   background-color: rgba(26, 115, 232, 0.02);
+}
+
+.workspace-header {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-right: 1px solid #dadce0;
+  font-weight: 500;
+  color: #3c4043;
+}
+.workspace-header__name {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 * {
