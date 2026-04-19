@@ -18,12 +18,12 @@ export const renderCurrentDate = () => {
 const switchDate = (direction) => {
   if (!direction) return;
   const currentDate = new Date(getItem(STORAGE_KEY_DISPLAYED_DATE));
-  setItem(STORAGE_KEY_DISPLAYED_DATE, 
-    direction === 'today'
+  const newDate = direction === 'today'
       ? new Date()
       : shmoment(currentDate) [direction === 'next' ? 'add' : 'subtract']
       ('days', 1).result()
-  );
+
+  setItem(STORAGE_KEY_DISPLAYED_DATE, newDate.toISOString());
   renderCurrentDate();
   renderBooking();
 };
