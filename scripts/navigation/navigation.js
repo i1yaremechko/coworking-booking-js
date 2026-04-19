@@ -50,7 +50,6 @@ export const initNavigation = () => {
 
     const workspaceId = header.dataset.workspaceId;
     const displayedDate = getItem(STORAGE_KEY_DISPLAYED_DATE);
-
     openModal({ 
       workspaceId: workspaceId,
       date: new Date(displayedDate).toISOString().split('T')[0]
@@ -67,7 +66,6 @@ export const initNavigation = () => {
     const startTime = slot.dataset.time.padStart(2, '0') + ':00';
     const endTime = (parseInt(slot.dataset.time) + 1).toString().padStart(2, '0') + ':00';
     const date = new Date(getItem(STORAGE_KEY_DISPLAYED_DATE)).toISOString().split('T')[0];
-
     openModal({
       workspaceId,
       startTime,
