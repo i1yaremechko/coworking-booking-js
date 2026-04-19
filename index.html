@@ -53,6 +53,50 @@
         <div class="booking__workspaces-grid"></div>
       </div>
     </main>
+    <div class="modal hidden overlay">
+      <div class="modal__content">
+        <form class="booking-form">
+          <button type="button" class="booking-form__close-btn">
+            <i class="fas fa-times"></i>
+          </button>
+          <input
+            type="text"
+            name="userName"
+            placeholder="User Name"
+            class="booking-form__field"
+            required
+          />
+          <div class="booking-form__settings">
+            <input type="date" name="date" class="booking-form__field" />
+            <select name="workspaceId" class="booking-form__field">
+              <option value="1">Desk 1</option>
+              <option value="2">Desk 2</option>
+              <option value="3">Desk 3</option>
+              <option value="4">Desk 4</option>
+              <option value="5">Desk 5</option>
+            </select>
+          </div>
+
+          <div class="booking-form__time">
+            <input type="time" name="startTime" class="booking-form__field" />
+            <span>-</span>
+            <input type="time" name="endTime" class="booking-form__field" />
+          </div>
+
+          <textarea
+            name="description"
+            placeholder="Description"
+            class="booking-form__field"
+          ></textarea>
+
+          <div class="booking-form__confirm-msg hidden">
+            Do you really want to book this desk?
+          </div>
+
+          <button type="submit" class="booking-form__submit-btn">Create</button>
+        </form>
+      </div>
+    </div>
     <script src="scripts/index.js" type="module"></script>
   </body>
 </html>

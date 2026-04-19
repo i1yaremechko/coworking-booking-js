@@ -189,11 +189,80 @@
   font-weight: 500;
   color: #3c4043;
   background: #d4f0f5;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.workspace-header:hover {
+  background-color: rgba(26, 115, 232, 0.05);
 }
 .workspace-header__name {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+}
+.booking-form__settings, .booking-form__time {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.booking-form__settings input,
+.booking-form__settings select, .booking-form__time input,
+.booking-form__time select {
+  flex: 1;
+}
+.booking-form textarea {
+  min-height: 100px;
+  resize: none;
+  font-family: inherit;
+}
+.booking-form__close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #5f6368;
+  font-size: 20px;
+}
+.booking-form__close-btn:hover {
+  color: #202124;
+}
+
+.booking-form__field {
+  background-color: #f1f3f4;
+  border: 1px solid transparent;
+}
+.booking-form__field:focus {
+  background-color: #fff;
+  border-color: #1a73e8;
+}
+
+.modal.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal.overlay.hidden {
+  display: none;
 }
 
 * {

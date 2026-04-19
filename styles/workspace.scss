@@ -35,6 +35,12 @@
   font-weight: 500;
   color: $color-text-main;
   background: $color-header-bg;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba($color-primary, 0.05);
+  }
 
   &__name {
     font-size: 14px;
