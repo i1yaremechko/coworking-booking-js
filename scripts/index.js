@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setItem(STORAGE_KEY_DISPLAYED_DATE, new Date().toISOString());
   }
 
+  // renderWorkspaceOptions(WORKSPACES_COUNT);
   renderBooking();
   initNavigation();
   initModal();
