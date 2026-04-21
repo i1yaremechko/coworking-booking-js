@@ -191,6 +191,7 @@
   background: #d4f0f5;
   cursor: pointer;
   transition: background-color 0.2s;
+  z-index: 50;
 }
 .workspace-header:hover {
   background-color: rgba(26, 115, 232, 0.05);

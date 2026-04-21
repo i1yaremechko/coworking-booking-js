@@ -35,6 +35,7 @@
   background: $color-header-bg;
   cursor: pointer;
   transition: background-color 0.2s;
+  z-index: 50;
 
   &:hover {
     background-color: rgba($color-primary, 0.05);
