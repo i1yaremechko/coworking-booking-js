@@ -1,5 +1,5 @@
 export const createEventElement = (event) => {
-  const { id, userName, startTime, endTime } = event;
+  const { id, userName, startTime, endTime, description } = event;
   
   const eventElem = document.createElement('div');
   eventElem.classList.add('event');
@@ -17,6 +17,7 @@ export const createEventElement = (event) => {
   eventElem.innerHTML = `
     <div class="event__name">${userName}</div>
     <div class="event__time">${startHour}:00 - ${endHour}:00</div>
+    <div class="event__description">${event.description || ''}</div>
   `;
 
   return eventElem;
