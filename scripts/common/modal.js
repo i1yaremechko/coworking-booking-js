@@ -1,6 +1,6 @@
 import { renderBooking } from "../booking/booking.js";
 import { createNewEvent } from "../events/createEvent.js";
-import { deleteEvent } from "../events/deleteEvent.js";
+import { onDeleteEvent } from "../events/deleteEvent.js";
 
 const modalElem = document.querySelector('.modal');
 const formElem = document.querySelector('.booking-form');
@@ -52,26 +52,26 @@ export const initModal = () => {
     }
   });
 
-  formElem?.addEventListener('submit', (event) => {
+  formElem?.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const formData = new FormData(formElem);
     const eventData = Object.fromEntries(formData.entries());
     const eventId = formElem.dataset.eventId;
 
-    if (createNewEvent(eventData, eventId)) {
+    if (await createNewEvent(eventData, eventId)) {
       formElem.dataset.eventId = '';
       closeModal();
-      renderBooking();
+      await renderBooking();
     }
   });
 
-  deleteBtnElem?.addEventListener('click', () => {
+  deleteBtnElem?.addEventListener('click', async () => {
     const eventId = formElem.dataset.eventId;
     if (eventId) {
-      deleteEvent(eventId);
+      await onDeleteEvent(eventId);
       closeModal();
-      renderBooking();
+      await renderBooking();
     }
   });
 };

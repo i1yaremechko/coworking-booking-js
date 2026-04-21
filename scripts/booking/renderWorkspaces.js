@@ -3,6 +3,7 @@ import { generateWorkspaceMarkup } from "./workspace.js";
 
 export const renderWorkspaces = () => {
   const gridContainer = document.querySelector('.booking__workspaces-grid');
+  if (!gridContainer) return;
   const workspaces = createNumbersArray(1, 5);
 
   gridContainer.innerHTML = workspaces

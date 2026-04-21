@@ -1,28 +1,30 @@
 export const STORAGE_KEY_DISPLAYED_DATE = 'displayedDate';
-export const STORAGE_KEY_EVENTS = 'calendarEvents';
+export const STORAGE_KEY_SELECTED_EVENT_ID = 'selectedEventId';
+export const STORAGE_KEY_EVENTS = 'events';
+
+const storage = {
+  [STORAGE_KEY_SELECTED_EVENT_ID]: null,
+  [STORAGE_KEY_EVENTS]: [],
+};
 
 export const setItem = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value));
+  if (key === STORAGE_KEY_DISPLAYED_DATE || key === STORAGE_KEY_EVENTS) {
+    localStorage.setItem(key, JSON.stringify(value));
+  } else {
+    storage[key] = value;
+  }
 };
 
 export const getItem = (key) => {
-  const data = localStorage.getItem(key);
-  return data ? JSON.parse(data) : null;
-};
-
-export const getEvents = () => {
-  return getItem(STORAGE_KEY_EVENTS) || [];
-};
-
-export const saveEvent = (eventData) => {
-  const events = getEvents();
-  
-  const newEvent = {
-    ...eventData,
-    id: Math.random().toString(36).substr(2, 9),
-    createDate: new Date().toISOString()
-  };
-  
-  events.push(newEvent);
-  setItem(STORAGE_KEY_EVENTS, events);
+  if (key === STORAGE_KEY_DISPLAYED_DATE || key === STORAGE_KEY_EVENTS) {
+    const value = localStorage.getItem(key);
+    if (!value) return null;
+    
+    const parsedValue = JSON.parse(value);
+    if (key === STORAGE_KEY_DISPLAYED_DATE) {
+      return new Date(parsedValue); 
+    }
+    return parsedValue;
+  }
+  return storage[key];
 };

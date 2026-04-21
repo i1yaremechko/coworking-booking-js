@@ -278,6 +278,7 @@
   border: 1px solid #185abc;
   overflow: hidden;
   pointer-events: auto;
+  cursor: pointer;
 }
 .event__name {
   font-weight: 700;

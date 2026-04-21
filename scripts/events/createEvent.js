@@ -1,5 +1,4 @@
-import { getEvents, saveEvent } from '../common/storage.js';
-import { updateEvent } from './updateEvent.js';
+import { createEvent, getEventsList, updateEvent } from '../server/bookingGateway.js';
 
 const isTimeOverlap = (events, formData, eventId) => {
   return events.some(event => {
@@ -17,9 +16,9 @@ const isTimeOverlap = (events, formData, eventId) => {
   });
 };
 
-export const createNewEvent = (formData, eventId) => {
-  const { startTime, endTime } = formData;
-  const events = getEvents();
+export const createNewEvent = async (formData, eventId) => {
+  const { userName, date, startTime, endTime, workspaceId } = formData;
+  const events = await getEventsList();
 
   const startMinutes = startTime.split(':')[1];
   const endMinutes = endTime.split(':')[1];
@@ -39,11 +38,15 @@ export const createNewEvent = (formData, eventId) => {
     return false;
   }
 
-  if (eventId) {
-    updateEvent(eventId, formData);
-  } else {
-    saveEvent(formData);
+  try {
+    if (eventId) {
+      await updateEvent(eventId, formData);
+    } else {
+      await createEvent(formData);
+    }
+    return true;
+  } catch (error) {
+    alert('Internal Server Error');
+    return false;
   }
-
-  return true;
 };

@@ -1,8 +1,9 @@
-import { getEvents, setItem, STORAGE_KEY_EVENTS } from '../common/storage.js';
+import { deleteEvent } from "../server/bookingGateway.js";
 
-export const deleteEvent = (eventId) => {
-  const allEvents = getEvents();
-  const updatedEvents = allEvents.filter(event => event.id !== eventId);
-  
-  setItem(STORAGE_KEY_EVENTS, updatedEvents);
+export const onDeleteEvent = async (eventId) => {
+  try {
+    await deleteEvent(eventId);
+  } catch (error) {
+    alert('Internal Server Error');
+  }
 };
